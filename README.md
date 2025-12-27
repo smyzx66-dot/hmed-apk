@@ -1,232 +1,88 @@
-<p align="center">
-<a href="https://t.me/rktechnoindians"><img title="Made in INDIA" src="https://img.shields.io/badge/MADE%20IN-INDIA-SCRIPT?colorA=%23ff8100&colorB=%23017e40&colorC=%23ff0000&style=for-the-badge"></a>
-</p>
 
-<a name="readme-top"></a>
+## 🛠️ أداة ApkPatcher (إصدار حميد)
 
+**صنع في العراق 🇮🇶 - Made in Iraq**
 
-# ApkPatcher
+---
 
+### 💢 المتطلبات الأساسية (قبل ما تبدي) 💢
+افتح تطبيق Termux واكتب ذني الأوامر بالسرّة حتى يشتغل عندك كلشي تمام:
+1. termux-setup-storage
+2. pkg update -y
+3. pkg upgrade -y
+4. pkg install python -y
 
-<p align="center"> 
-<a href="https://t.me/rktechnoindians"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=800&size=35&pause=1000&color=F74848&center=true&vCenter=true&random=false&width=435&lines=ApkPatcher" /></a>
- </p>
+---
 
+### 📥 طريقة التثبيت
+حتى تثبت أداة ApkPatcher، اختار أي طريقة تعجبك من ذني الأوامر:
 
-Installation Method
--------
-**💢 Requirement PKG 💢**
+👉 **الطريقة الأولى (التثبيت المباشر):**
+pip install --force-reinstall https://github.com/TechnoIndian/ApkPatcher/archive/refs/heads/main.zip
 
-```bash
-termux-setup-storage
-pkg update -y
-pkg upgrade -y
-pkg install python -y
-```
+أو استعمل هذا الكود:
+curl -Ls https://github.com/TechnoIndian/Tools/releases/download/Tools/ApkPatcher.sh | bash
 
-**👉🏻 To install ApkPatcher, Run only any one cmd from the Installation Method**
+👉 **الطريقة الثانية (عن طريق Git):**
+pkg install python git && pip install git+https://github.com/TechnoIndian/ApkPatcher.git
 
-**💢 PYPI ( Just Testing ) 💢**
+❌ **إذا ردت تمسح الأداة نهائياً:**
+pip uninstall ApkPatcherX
 
-    pip install ApkPatcherX
+---
 
-[![PyPI](https://img.shields.io/badge/pypi-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B)](https://pypi.org/project/ApkPatcherX) [![Version](https://img.shields.io/pypi/v/ApkPatcherX?label=&style=for-the-badge&color=FF8C00&labelColor=FF8C00)](https://pypi.org/project/ApkPatcherX)
+### ⚙️ شلون تستخدم الأداة (أمثلة)
 
+الأداة تشتغل بنظام (Input Mode) يعني تنطيها مسار التطبيق وهي تعدل عليه. الشغل التلقائي مالتها هو تخطي الـ VPN والـ SSL.
 
-**1st. Method**
+* **الأمر الأساسي:**
+  ApkPatcher -i اسم_تطبيقك.apk
 
-`💢 For Latest Commit ( From Main  Branch )  💢`
+* **استخدام APKEditor بدل APKTool:**
+  ApkPatcher -i app.apk -a
 
-    pip install --force-reinstall https://github.com/TechnoIndian/ApkPatcher/archive/refs/heads/main.zip
+* **دمج شهادة الفحص (Certificate):**
+  ApkPatcher -i app.apk -c مسار_الشهادة.pem
 
-`OR`
+* **تخطي حماية تطبيقات Flutter:**
+  ApkPatcher -i app.apk -f
 
-    pip install --force-reinstall https://github.com/TechnoIndian/ApkPatcher/archive/refs/heads/main.tar.gz
+* **تخطي حماية Pairip (يفضل تشغله بـ VM أو تطبيق متعدد):**
+  ApkPatcher -i app.apk -p
 
-`OR`
+* **تغيير الـ Android ID (تخطي قفل الجهاز الواحد):**
+  ApkPatcher -i app.apk -D 7e9f51f096bd5c83
 
-    curl -Ls https://github.com/TechnoIndian/Tools/releases/download/Tools/ApkPatcher.sh | bash
+* **تخطي كشف البكج (Spoofing):**
+  ApkPatcher -i app.apk -pkg
 
-**2nd. Method**
+* **تفعيل ميزات الشراء والمدفوع (Premium):**
+  ApkPatcher -i app.apk -P
 
-    pkg install python git && pip install git+https://github.com/TechnoIndian/ApkPatcher.git
+* **تخطي منع تصوير الشاشة (Anti-Screenshot):**
+  ApkPatcher -i app.apk -rmss
 
+* **تخطي كشف تصحيح الـ USB (USB Debugging):**
+  ApkPatcher -i app.apk -rmusb
 
-Uninstall ApkPatcher
------
+* **حذف الإعلانات من التطبيق:**
+  ApkPatcher -i app.apk -rmads
 
-    pip uninstall ApkPatcherX
+* **تعديل تطبيقات التليجرام و Plus:**
+  ApkPatcher -i app.apk -t
 
+---
 
-# Usage Example
+### 🖇️ نظام الدمج (Merge Mode)
+إذا عندك تطبيق مقسم (مثل .apks أو .xapk) وتريد تجمعه بملف APK واحد عادي:
+ApkPatcher -m اسم_الملف.apks
 
+---
 
-ApkPatcher ( Input Mode )
------
+### 📋 أوامر المساعدة
+* **للمساعدة:** ApkPatcher -h
+* **لمعرفة باقي الإضافات:** ApkPatcher -O
+* **للحقوق:** ApkPatcher -C
 
-**Mode `-i` ➸ Smali Patcher ( Input Your APK Path )**
-
-`Default Patch is VPN & SSL Bypass`
-
-    ApkPatcher -i YourApkPath.apk
-
-**Flag: `-a` ➸ Try with APKEditor ( Default APKTool )**
-
-    ApkPatcher -i YourApkPath.apk -a
-
-**Flag: `-c` ➸ Embed Your Captural APK's Certificate**
-
-`With Your Certificate ( Input Your .pem / .crt / .cert Path )`
-
-`If you have already installed your certificate under CA Certificates in your device settings, then you don’t need to use the "-c YourCertificatePath.cert" parameter, because the user certificate is already trusted by network_security_config.xml`
-
-    ApkPatcher -i YourApkPath.apk -c YourCertificatePath.cert
-
-`Multiple Certificate`
-
-    ApkPatcher -i YourApkPath.apk -c /sdcard/HttpCanary/certs/HttpCanary.pem /sdcard/Download/Reqable/reqable-ca.crt /sdcard/Download/ProxyPinCA.crt
-
-**Flag: `-e` ➸ If using emulator on PC**
-
-    ApkPatcher -i YourApkPath.apk -e
-
-**Flag: `-u` ➸ Keep UnSigned APK**
-
-    ApkPatcher -i YourApkPath.apk -u
-
-
-Smali Patcher ( Additional Flags )
------
-
-**Flag: `-f` / `-p` / `-p -x` ➸ Flutter & Pairip SSL Bypass**
-
-`For Flutter, Script By  🇮🇳 AbhiTheM0dder 🇮🇳`
-
-    ApkPatcher -i YourApkPath.apk -f
-
-`For Pairip ( UnSigned APK, Use Only in VM / Multi App )`
-
-    ApkPatcher -i YourApkPath.apk -p
-
-`CoreX HooK For Pairip ( Install Directly, Only For [ arm64 ] )`
-
-    ApkPatcher -i YourApkPath.apk -p -x
-
-**Flag: `-D` ➸ Hook Android ID For One Device Login Bypass**
-
-`Input Your 16 Digit Android ID`
-
-    ApkPatcher -i YourApkPath.apk -D 7e9f51f096bd5c83
-
-**Flag: `-pkg` ➸ Spoof Package Detection ( Dex / Manifest / Res )**
-
-    ApkPatcher -i YourApkPath.apk -pkg
-
-**Flag: `-P` ➸ Purchase / Paid / Price**
-
-    ApkPatcher -i YourApkPath.apk -P
-
-**Flag: `-rmss` / `-rmusb` ➸ Bypass Screen / USB Restriction**
-
-`Bypass Screenshot Restriction`
-
-    ApkPatcher -i YourApkPath.apk -rmss
-
-`Bypass USB Debugging`
-
-    ApkPatcher -i YourApkPath.apk -rmusb
-
-**Flag: `-skip` ➸ Skip Patch (e.g., getAcceptedIssuers)**
-
-    ApkPatcher -i YourApkPath.apk -skip getAcceptedIssuers
-
-
-AES Patcher ( Additional Flags )
------
-
-**Flag: `-A` ➸ AES MT Logs Inject**
-
-    ApkPatcher -i YourApkPath.apk -A
-
-`Do U Want Separate AES.smali Dex`
-
-    ApkPatcher -i YourApkPath.apk -A -s
-
-
-Spoof Patcher ( Additional Flags )
------
-
-**Flag: `-r` ➸ Random / Fake / Spoof Device Info**
-
-    ApkPatcher -i YourApkPath.apk -r
-
-`Input Your 16 Digit Custom Android ID`
-
-    ApkPatcher -i YourApkPath.apk -r -D 7e9f51f096bd5c83
-
-
-Ads Patcher ( Additional Flags )
------
-
-**Flag: `-rmads` ➸ Remove Ads**
-
-    ApkPatcher -i YourApkPath.apk -rmads
-
-
-TG Patcher ( Additional Flags )
------
-
-**Flag: `-t` ➸ Telegram / Plus Patch, Script By  🇮🇳 AbhiTheM0dder 🇮🇳**
-
-    ApkPatcher -i YourApkPath.apk -t
-
-
-Pine Hook ( Additional Flags )
------
-
-**Flag: `-pine -l` ➸ -pine -l ( Input Path of Xposed & LSP Module )**
-
-`Mutil Path Supported, But module path should not contain space or symbols.`
-
-    ApkPatcher -i YourApkPath.apk -pine -l NoVPNDetect.apk just.trust.me.apk
-
-
-ApkPatcher ( Merge Mode )
------
-
-**Mode `-m` ➸ Anti-Split ( Only Merge APK )**
-
-`Supported Extensions ( .apks / .apkm / .xapk )`
-
-    ApkPatcher -m YourApkPath.apks
-
-
-ApkPatcher ( Credits Mode )
------
-
-**Mode `-C` ➸ Credits**
-
-    ApkPatcher -C
-
-
-ApkPatcher Help
------
-
-    ApkPatcher -h
-
-
-ApkPatcher Other Patch Flags
------
-
-    ApkPatcher -O
-
-
-# NOTE
-
-
-## 🇮🇳 Welcome By Techno India 🇮🇳
-
-[![Telegram](https://img.shields.io/badge/TELEGRAM-CHANNEL-red?style=for-the-badge&logo=telegram)](https://t.me/rktechnoindians)
-  </a><p>
-[![Telegram](https://img.shields.io/badge/TELEGRAM-OWNER-red?style=for-the-badge&logo=telegram)](https://t.me/RK_TECHNO_INDIA)
-</p>
+---
+**ملاحظة من حميد:** أهلاً وسهلاً بيكم، هذا الشغل لخدمتكم 🇮🇶.
